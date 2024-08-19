@@ -18,6 +18,7 @@ const AudioPlayer = ({audioSrc,image}) => {
     }
   },[isPlaying]);
 
+
   useEffect(()=>{
     if(isMute){
       audioRef.current.volume = 0;
@@ -31,12 +32,12 @@ const AudioPlayer = ({audioSrc,image}) => {
   useEffect(()=>{
     const audio = audioRef.current;
     audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("loadedMetaData", handleLoadedMetaData);
+    audio.addEventListener("loadedmetadata", handleLoadedMetaData);
     audio.addEventListener("ended", handleEnded);
 
     return () =>{
       audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("loadedMetaData", handleLoadedMetaData);
+      audio.removeEventListener("loadedmetadata", handleLoadedMetaData);
       audio.removeEventListener("ended", handleEnded);
     };
   },[]);
@@ -93,11 +94,12 @@ const AudioPlayer = ({audioSrc,image}) => {
       <p className='audio-btn' onClick={togglePlay}>{isPlaying?<FaPause/>:<FaPlay/>}</p>
       <div className='duration-flex'>
         <p>{formatTime(currentTime)}</p>
-        <input type='range' value={currentTime} min={0} max={duration} step={0.01} onChange={handleDuration} className='duration-range'/>
-        <p>{formatTime(duration - currentTime)}</p>
+        <input type='range' value={currentTime} min={0} max={duration} step={0.001} onChange={handleDuration} className='duration-range'/>
+        <p>-{formatTime(duration - currentTime)}</p>
       </div>
       <p className='audio-btn' onClick={toggleVolume}>{isMute?<FaVolumeMute/>:<FaVolumeUp/>}</p>
-      <input type='range' value={volume} max={1} min={0} step={0.01} onChange={handleVolume} className='volume-range'/>
+      <input type='range' value={volume} max={1} min={0} step={0.001} onChange={handleVolume} className='volume-range'/>
+      
     </div>
   )
 }

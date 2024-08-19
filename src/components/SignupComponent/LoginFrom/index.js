@@ -28,7 +28,7 @@ const LoginForm = () => {
         const user = userCredential.user;
         const userDoc = await getDoc(doc(db,"users",user.uid));
         const userData = userDoc.data();
-        console.log(userData);
+        console.log(user);
 
         dispatch(setUser({
           name: userData.name,

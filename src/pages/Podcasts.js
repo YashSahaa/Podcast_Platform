@@ -35,20 +35,20 @@ const Podcasts = () => {
 
     return (
         <div>
-        <Header/>
-        <div className='input-wrapper ' style={{marginTop:"2rem"}}>
-            <h1>Discover Podcast</h1>
-            <InputComponent type="text" state={search} setState={setSearch} placeholder="Search By Title"/>
-            {filteredPodcasts.length>0 ? (
-                <div className='podcast-flex' style={{marginTop:"1.5rem"}}>
-                    {filteredPodcasts.map((item)=>{
-                        return <PodcastCard key={item.id} id={item.id} title={item.title} displayImage={item.displayImage}/>
-                    })}
-                </div>
-            ):(
-                <p>{search?"Podcast Not Found":"No Current Podcast"}</p>
-            )}
-        </div>
+            <Header/>
+            <div className='input-wrapper ' style={{marginTop:"2rem"}}>
+                <h1>Discover Podcast</h1>
+                <InputComponent type="text" state={search} setState={setSearch} placeholder="Search By Title"/>
+                {filteredPodcasts.length>0 ? (
+                    <div className='podcast-flex' style={{marginTop:"1.5rem"}}>
+                        {filteredPodcasts.map((item)=>{
+                            return <PodcastCard key={item.id} id={item.id} title={item.title} displayImage={item.displayImage}/>
+                        })}
+                    </div>
+                ):(
+                    <p>{search?"Podcast Not Found":"No Current Podcast"}</p>
+                )}
+            </div>
         </div>
     )
 }

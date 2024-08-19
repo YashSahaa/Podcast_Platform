@@ -16,7 +16,6 @@ const CreatePodcastForm = () => {
   const [bannerImage,setBannerImage] = useState() ;
   const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleSubmit = async() =>{
       setLoading(true);
@@ -46,6 +45,7 @@ const CreatePodcastForm = () => {
 
           setLoading(false);
           toast.success("Podcast Created !");
+          navigate("/create-a-podcast");
         } catch (error) {
           setLoading(false);
           toast.error(error.message);
