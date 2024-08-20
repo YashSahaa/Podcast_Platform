@@ -35,6 +35,7 @@ const LoginForm = () => {
           name: userData.name,
           email: user.email,
           uid: user.uid,
+          profileImage: userData.profileImage,
         }));
 
         setLoading(false);

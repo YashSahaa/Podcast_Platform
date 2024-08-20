@@ -58,7 +58,7 @@ const Profile = () => {
         <h1>Profile</h1>
         <div className='profile-details'>
           <div className='profile-pic'>
-            <FaUser size={35} color='aliceblue'/>
+            {user.profileImage ? (<img src={user.profileImage} className='profile-image'/>):(<FaUser size={35} color='aliceblue'/>)}
           </div>
           <h3>{user.name}</h3>
           <h3>{user.email}</h3>
