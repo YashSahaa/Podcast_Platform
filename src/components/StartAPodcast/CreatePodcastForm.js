@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../common/Button';
 import InputComponent from '../common/Input';
@@ -45,7 +44,7 @@ const CreatePodcastForm = () => {
 
           setLoading(false);
           toast.success("Podcast Created !");
-          navigate("/create-a-podcast");
+          navigate("/profile");
         } catch (error) {
           setLoading(false);
           toast.error(error.message);

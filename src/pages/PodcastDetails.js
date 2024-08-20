@@ -61,6 +61,10 @@ const PodcastDetails = () => {
         
     }
 
+    const handleCancel = () =>{
+        setPlayingFile("");
+    }
+
     return (
         <div>
             <Header/>
@@ -88,9 +92,9 @@ const PodcastDetails = () => {
                     </>
                 )}
             </div>
-            {playingFile && <AudioPlayer audioSrc={playingFile} image={podcast.displayImage}/>}
+            {playingFile && <AudioPlayer id={id} audioSrc={playingFile} image={podcast.displayImage} handleCancel={handleCancel}/>}
         </div>
     )
 }
 
-export default PodcastDetails;
+export default PodcastDetails; 

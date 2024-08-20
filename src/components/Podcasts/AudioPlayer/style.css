@@ -39,3 +39,9 @@
 .audio-btn{
     cursor: pointer;
 }
+
+.cancel-btn{
+    cursor: pointer;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}

@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 const PrivateRoutes = () => {
   const [user,loading,error] = useAuthState(auth);
   if(loading){
-    return "Loding...";
+    return "Loading...";
   }else if(!user || error){
     return <Navigate to="/" replace/>;
   }else{

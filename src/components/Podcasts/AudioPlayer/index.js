@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "./style.css";
 import { FaPlay,FaPause,FaVolumeUp,FaVolumeMute } from 'react-icons/fa';
+import { RxCross2 } from "react-icons/rx";
 
-const AudioPlayer = ({audioSrc,image}) => {
+const AudioPlayer = ({audioSrc,image,handleCancel}) => {
   const audioRef = useRef();
   const [isPlaying,setIsPlaying] = useState(true);
   const [isMute,setIsMute] = useState(false);
@@ -87,6 +88,8 @@ const AudioPlayer = ({audioSrc,image}) => {
     return `${minutes}:${seconds<10?"0":""}${seconds}`;
   }
 
+  
+
   return (
     <div className='custom-audio-player'>
       <img src={image} className='display-image-player'/>
@@ -99,7 +102,7 @@ const AudioPlayer = ({audioSrc,image}) => {
       </div>
       <p className='audio-btn' onClick={toggleVolume}>{isMute?<FaVolumeMute/>:<FaVolumeUp/>}</p>
       <input type='range' value={volume} max={1} min={0} step={0.001} onChange={handleVolume} className='volume-range'/>
-      
+      <p className='cancel-btn' onClick={handleCancel}><RxCross2 size={20}/></p>
     </div>
   )
 }
